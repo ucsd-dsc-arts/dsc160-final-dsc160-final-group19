@@ -23,6 +23,15 @@ For the project proposal, please write a short abstact addressing the questions 
 - Why is it interesting? (personally, culturally, politically, other)
 - List three papers / art projects that are references for this work.
 
+Generative music is not a new idea, and has been around as early as 1989. However, the use of neural networks for this creation has not been popularized until recently (Yang et al., 2017). This project plans to use neural networks to generate music from a plethora of genres. However this presents many challenges
+
+__References and Inspirations:__
+- __MidiNET, CNN-GAN__: https://opus.lib.uts.edu.au/bitstream/10453/6862/1/2004001187.pdf
+- __Combining theory between RNN and LSTM__: http://cs229.stanford.edu/proj2016/report/Lou-MusicGenerationUsingNeuralNetworks-report.pdf
+- __Easy to understand example__: https://medium.com/@leesurkis/how-to-generate-techno-music-using-deep-learning-17c06910e1b3
+- __Videogame music with one instrument (lots of music theory)__: https://www.youtube.com/watch?v=UWxfnNXlVy8&feature=youtu.be
+- __DeepMusic__: https://github.com/llSourcell/How_to_generate_music_in_tensorflow_LIVE
+
 ## Data and Model
 
 (10 points) 

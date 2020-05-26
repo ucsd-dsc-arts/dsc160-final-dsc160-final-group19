@@ -10,8 +10,11 @@ Project Team Members:
 ## Abstract
 
   Generative music is not a new idea, and has been around as early as 1989. However, the use of neural networks for this creation has not been popularized until recently (Yang et al., 2017). This project plans to use neural networks to generate music from MIDI jazz files. However this presents many challenges, as melody can be generated, but structure is much harder to generate due to variance. We propose to compose music using LSTMs to attempt to generate melody from MIDI files scraped off the internet.
+  
   In addition to researching LSTMs,  we found that different types of neural network tools are useful for specific tasks. For example, HyperGAN is fast and good at intervals but can often be unspecific about the note played and does not have a good understanding of “directions,” meaning it would not pay attention to the more established tonal progressions such as the circle of fifths. Meanwhile, PixelCNN is very slow but has no problem with direction meaning it would stick to more established musical tropes, which is (from personal musical experience) probably the most important part in creating a catchy, human-like composition.
+  
   The form we want to present our project in is a progression of how the model has trained, meaning presenting samples of the music at certain epochs. There is a lot of flexibility in where we could potentially take the analysis, but the overall idea is to generate music good enough to trick listeners. We would ask people to determine which composition was computer-generated, and expect them to be fooled around 25% of the time like the DeepBach research.
+  
   Right now even the best computer-generated music is not good enough to be considered an actual source of entertainment, and the examples that come close are usually heavily stylized compositions. In the future, however, there is a chance that machine-produced entertainment will rival that of human origins, and we would like to see how close we can get to that point with the current algorithms and levels of technology.
 
 __References and Inspirations:__

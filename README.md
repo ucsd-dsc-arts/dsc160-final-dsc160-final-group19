@@ -27,13 +27,13 @@ __Models__:
 - [Our WaveNet Adaptation (There's 3 different versions we tested)](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/tree/master/code/WaveNet). We adapted the traditional WaveNet architecture, which uses raw waveform data, and changed it to accept string sequences of integers representing notes. The model uses 1D Dilated Causal Convolutional Layers. The most important aspect about this is the dilation, which covers for the low receptive field of the convolutions by exponentially increasing it inside the hidden layers.
   - [WaveNet Paper](https://arxiv.org/pdf/1609.03499.pdf?utm_source=Sailthru&utm_medium=email&utm_campaign=Uncubed%20Entry%20%2361%20-%20April%203%2C%202019&utm_term=entry)
   
-  
-- [GANs](code/GANs.zip)
-  
 ![WaveNet Architecture](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/wavenet_architecture.png)
 ![dilation](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/diluted_causal_CNN.gif)
 
-# TODO: Muse_GAN
+- [GANs](code/GANs.zip). The idea of a GAN is to have a generator model creating data and a discriminator model classifying it as real/fake trying to outsmart each other. This directly speaks to our attempts at making the music human-like, after all, real/fake classification is the means and the goal. GANs have been shown to produce incredible results in image generation, however, traditional GANs struggle with data directionality, which is one of the main features of music generation. Therefore, the descriminator has to rely on sequential neural networks, usually LSTMs for discrimination. We did not get any satisfying results with simpler GAN models, so our theory was that the generator does not get enough attention. An example of a well-built GAN model is MuseGAN, which utilizes three different approaches to note generation, as well as a layer of bar generation. Sadly, we could not train it on our data as the preprocessing was done very specifically for the dataset the creators used.
+  - [MuseGAN paper](https://arxiv.org/pdf/1709.06298.pdf)
+  
+![MuseGAN Structure](git_img/musegan.png)
 
 # TODO: performance_rnn
 

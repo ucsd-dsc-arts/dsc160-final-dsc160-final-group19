@@ -34,6 +34,15 @@ In the final submission, this section will describe both the data you use for th
   - [link to code]().
   - [Title of Paper with Link](). 
 - Training data. Short description of training data including bibliographic info. [link to data]().
+__Models__:
+- [Our WaveNet Adaptation (There's 3 different versions we tested)](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/tree/master/code/WaveNet). We adapted the traditional WaveNet architecture, which uses raw waveform data, and changed it to accept string sequences of integers representing notes. The model uses 1D Dilated Causal Convolutional Layers. The most important aspect about this is the dilation, which covers for the low receptive field of the convolutions by exponentially increasing it inside the hidden layers.
+  - [WaveNet Paper](https://arxiv.org/pdf/1609.03499.pdf?utm_source=Sailthru&utm_medium=email&utm_campaign=Uncubed%20Entry%20%2361%20-%20April%203%2C%202019&utm_term=entry)
+![WaveNet Architecture](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/wavenet_architecture.png)
+![dilation](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/diluted_causal_CNN.gif)
+
+__Training Data__:
+- [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro). A dataset released by Magenta that has over 200 hours of piano music, and is in midi format.
+- [Video game midis](https://www.vgmusic.com/music/other/miscellaneous/piano/). A bunch of only piano midi files
 
 ## Code
 
@@ -47,6 +56,11 @@ This section will link to the various code for your project (stored within this 
 - generative methods
 
 Link each of these items to your .ipynb or .py files within this seection, and provide a brief explanation of what the code does. Reading this section we should have a sense of how to run your code.
+
+__WaveNet__: 
+- [Scraping video game music](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/Scraping%20Video%20Game%20Music.ipynb) Crawls a link for more download links found on page.
+- [Base Model](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV1.ipynb). First iteration of the model, covers processing of midi files, and then runs baseline WaveNet Model originally ran on maestro dataset.
+- [WaveNet v2](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb). Second iteration of the model, this time adds in removal of notes occuring less than X times, and also changes hyper parameters of the model in an attempt to fix generative process. Trained on videogame music.
 
 ## Results
 
@@ -73,7 +87,9 @@ The subsequent paragraphs could address questions including:
 
 ## Team Roles
 
-Provide an account of individual members and their efforts/contributions to the specific tasks you accomplished.
+Nikolas Racelis Russell: WaveNet model
+Iakov Vasilyev: Muse_GAN model
+Cameron Shaw: Magenta performance_RNN model
 
 ## Technical Notes and Dependencies
 
@@ -82,9 +98,26 @@ Any implementation details or notes we need to repeat your work.
 - Does this code require other pip packages, software, etc?
 - Does this code need to run on some other (non-datahub) platform? (CoLab, etc.)
 
+__For WaveNet__:
+- Tensorflow-gpu (latest version as of 6/11/20)
+- music_21
+- scikit-learn
+- numpy
+
 ## Reference
 
 All references to papers, techniques, previous work, repositories you used should be collected at the bottom:
 - Papers
 - Repositories
 - Blog posts
+
+- __MidiNET, CNN-GAN__: https://opus.lib.uts.edu.au/bitstream/10453/6862/1/2004001187.pdf
+- __Combining theory between RNN and LSTM__: http://cs229.stanford.edu/proj2016/report/Lou-MusicGenerationUsingNeuralNetworks-report.pdf
+- __Easy to understand example__: https://medium.com/@leesurkis/how-to-generate-techno-music-using-deep-learning-17c06910e1b3
+- __Videogame music with one instrument (lots of music theory)__: https://www.youtube.com/watch?v=UWxfnNXlVy8&feature=youtu.be
+- __DeepMusic__: https://github.com/llSourcell/How_to_generate_music_in_tensorflow_LIVE
+- __DeepBach__: https://arxiv.org/abs/1612.01010
+- __WaveNet Paper__: https://arxiv.org/pdf/1609.03499.pdf?utm_source=Sailthru&utm_medium=email&utm_campaign=Uncubed%20Entry%20%2361%20-%20April%203%2C%202019&utm_term=entry
+- __WaveNet Architecture Adaption__: https://www.analyticsvidhya.com/blog/2020/01/how-to-perform-automatic-music-generation/
+- __Videogame MIDIS__: https://www.vgmusic.com/
+- __Scraping code__: https://github.com/x4nth055/pythoncode-tutorials/tree/master/web-scraping/link-extractor

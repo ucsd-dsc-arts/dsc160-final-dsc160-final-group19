@@ -34,9 +34,11 @@ In the final submission, this section will describe both the data you use for th
   - [link to code]().
   - [Title of Paper with Link](). 
 - Training data. Short description of training data including bibliographic info. [link to data]().
+
 __Models__:
 - [Our WaveNet Adaptation (There's 3 different versions we tested)](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/tree/master/code/WaveNet). We adapted the traditional WaveNet architecture, which uses raw waveform data, and changed it to accept string sequences of integers representing notes. The model uses 1D Dilated Causal Convolutional Layers. The most important aspect about this is the dilation, which covers for the low receptive field of the convolutions by exponentially increasing it inside the hidden layers.
   - [WaveNet Paper](https://arxiv.org/pdf/1609.03499.pdf?utm_source=Sailthru&utm_medium=email&utm_campaign=Uncubed%20Entry%20%2361%20-%20April%203%2C%202019&utm_term=entry)
+  
 ![WaveNet Architecture](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/wavenet_architecture.png)
 ![dilation](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/diluted_causal_CNN.gif)
 

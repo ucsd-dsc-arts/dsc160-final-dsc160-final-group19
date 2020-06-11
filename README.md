@@ -64,7 +64,9 @@ __WaveNet__:
 - [WaveNet v2](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb). Second iteration of the model, this time adds in removal of notes occuring less than X times, and also changes hyper parameters of the model in an attempt to fix generative process. Trained on videogame music.
 - [WaveNet Mini](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNetV2_small_videogame.ipynb) Failed experiment where we tried to see if having a very small dataset that would become overfit would produce decent results.
 
-__Muse_GAN__:
+__GANs__:
+- [Models](code/GANs.zip). The two GAN Models are in the GANs.zip folder. The Untitled notebook in the midi-lstm-gan subfolder can be run to train on the Maestro dataset.
+
 # TODO
 
 __Magenta's performance_rnn__:
@@ -86,7 +88,8 @@ __WaveNet__:
 - [Version 2 (video game) Sample](/results/WaveNet/videogame_1.mp3). With this sample we can hear the heavy videogame music influence, as it sounds kind of similar to some Final Fantasy title screen music (about 20 out of 800ish data samples were from final fantasy). This was a definite improvement from the base model, possibly due to the generative process changes from tuning hyperparameters [linked from this code notebook](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb).
 
 __Muse_GAN__:
-# TODO
+- [midi-lstm-gan after 3000 epochs](results/gan_final.mid). A constant stream of almost random notes, this model seemed to perform the worst out of all the other ones, the main reason being the music21 midi parser failing to parse the Maestro files correctly.
+- [midi-lstm-gan loss per epoch graph](results/GAN_Loss_per_Epoch_final.png). This graph shows the convergence of the discriminator and generator losses at a somewhat high number (x-axis is 100s of epochs), signifying, most likely, underfit data. 
 
 __Magenta's performance_rnn__:
 # TODO
@@ -104,9 +107,11 @@ The subsequent paragraphs could address questions including:
 - What are the ethical concerns for this form of generative art? 
 - In what future directions could you expand this work?
 
-  Advancements in the field of generative art have been quite spectacular. With music, the best advancements were made by applying specific models to specific datasets, and, as our experience shows, the models malfunction when presented with music of less structure or different genres. 
-  # TODO: Add section comparing how our models had worked, and why? 
-  The ideal model would encompass all possible differences, and it is hard to tell what we are lacking. On the model side, it would be perfect if we could utilize some type of a “music theory of everything”, although the point of applying neural networks to this task is to let the models figure that theory out. It seems GANs, LSTMs, and encoder-decoder systems perform well together, each one covering the disadvantages of the others. 
+  Advancements in the field of generative art have been quite spectacular. With music, the best advancements were made by applying specific models to specific datasets, and, as our experience shows, the models malfunction when presented with music of less structure or different genres. The reason for that, we believe, is that our models ended up underfit. The algorithms tried to extract patterns from many (but not too many) very different samples, and, limited by the memory and power of our PCs, we were definitely not feeding them enough data for any clear patterns to solidify. Of course, one solution would be to give the models even less data, which would cause overfitting. Specifically for this task, overfitting would mean the algorithms would produce very similar music to the chosen set which would make it sound good, however, would it even be new music at that point? Immitating and following rules are tasks that computers excel at anyway, so there is no point in having nice sounding results if they come from overfitting. To avoid both underfitting and overfitting we would have had to feed way more data to the models than we possibly could.
+  # TODO: Add section comparing how our models had worked, and why?
+  Trying different models shed some light on the performance issues and advantages of certain underlying neural nets. The three most popular algorithms in music generation turned out to be LSTMs, GANs, and Encoder-Decoder networks. LSTMs seem to be the most widely used networks as they capture both short and long term dependencies very well, which is important for music as there needs to be consistency not only withing each bar, but also between bars withing phrases, as well as between the phrases themselves. Furthermore, music often relies on set verse-chorus structures, and, hopefully, LSTMs can take care of that as well. GANs and Encoder-Decoders usually play secondary roles in music generation, but are also quite useful and important for more advanced models.
+  
+  So what would an ideal music generative model look like? The ideal model would encompass all possible differences of music, and it is hard to tell what we are currently lacking. On the model side, it would be perfect if we could utilize some type of a “music theory of everything”, although the point of applying neural networks to this task is to let the models figure that theory out.
   Therefore, the problem is on the data side, in the data itself and the way it is processed. The idea is human listeners rely on more than note information for music appreciation, for example we expect different instruments to play different parts, different genres to have different structures, and so on. On top of that, the idea of “enjoyment” is unquantifiable, so there seems to be no real measure of how well a model is doing without a human supervisor, and even then the opinion is subjective. Ideally, we would have compact data that would encompass a lot of information, including (but not limited to): note info (midi covers that pretty nicely), bar info, instrument info, genre info, and maybe even some type of sentiment info. The good news is all of these measurements are achievable to some capacity, and a GAN discriminator could assume the role of an objective human supervisor, so we believe that it would be possible to create a near-perfect dataset and train a near-perfect model that could create catchy human-like music for everyone to enjoy.
 
 ## Team Roles

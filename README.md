@@ -40,8 +40,11 @@ __Models__:
 
 __Training Data__:
 - [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro). A dataset released by Magenta that has over 200 hours of piano music, and is in midi format.
-  - [Maestro sample 1](/data/lstm_midi/MIDI-Unprocessed_01_R1_2011_MID--AUDIO_R1-D1_02_Track02_wav.midi)
+  - [Maestro sample 1](/data/SAMPLES/maestro_sample.mp3)
 - [Video game midis](https://www.vgmusic.com/music/other/miscellaneous/piano/). A bunch of only piano midi files
+  - [Video game sample 1](/data/SAMPLES/ff9_battle.mp3)
+- [Schubert](https://drive.google.com/file/d/1qnQVK17DNVkU19MgVA4Vg88zRDvwCRXw/view). Random piano midi dataset
+  - [Schubert sample 1](/data/SAMPLES/schubert_sample.mp3)
 
 ## Code
 

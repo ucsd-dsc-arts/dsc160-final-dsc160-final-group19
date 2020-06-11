@@ -34,8 +34,13 @@ __Models__:
 ![WaveNet Architecture](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/wavenet_architecture.png)
 ![dilation](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/git_img/diluted_causal_CNN.gif)
 
+# TODO: Muse_GAN
+
+# TODO: performance_rnn
+
 __Training Data__:
 - [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro). A dataset released by Magenta that has over 200 hours of piano music, and is in midi format.
+  - [Maestro sample 1](/data/lstm_midi/MIDI-Unprocessed_01_R1_2011_MID--AUDIO_R1-D1_02_Track02_wav.midi)
 - [Video game midis](https://www.vgmusic.com/music/other/miscellaneous/piano/). A bunch of only piano midi files
 
 ## Code
@@ -57,6 +62,12 @@ __WaveNet__:
 - [WaveNet v2](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb). Second iteration of the model, this time adds in removal of notes occuring less than X times, and also changes hyper parameters of the model in an attempt to fix generative process. Trained on videogame music.
 - [WaveNet Mini](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNetV2_small_videogame.ipynb) Failed experiment where we tried to see if having a very small dataset that would become overfit would produce decent results.
 
+__Muse_GAN__:
+# TODO
+
+__Magenta's performance_rnn__:
+# TODO
+
 ## Results
 
 (30 points) 
@@ -72,6 +83,12 @@ __WaveNet__:
 - [Version 1 (schubert failed sample](/results/WaveNet/schubert1.mp3). From trying out the model trained on a very small data set named schubert, but not much good came from this model, barely any nice melody from the samples.
 - [Version 2 (video game) Sample](/results/WaveNet/videogame_1.mp3). With this sample we can hear the heavy videogame music influence, as it sounds kind of similar to some Final Fantasy title screen music (about 20 out of 800ish data samples were from final fantasy). This was a definite improvement from the base model, possibly due to the generative process changes from tuning hyperparameters [linked from this code notebook](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb).
 
+__Muse_GAN__:
+# TODO
+
+__Magenta's performance_rnn__:
+# TODO
+
 ## Discussion
 
 (30 points, three to five paragraphs)
@@ -85,7 +102,10 @@ The subsequent paragraphs could address questions including:
 - What are the ethical concerns for this form of generative art? 
 - In what future directions could you expand this work?
 
-Advancements in the field of generative art have been quite spectacular. With music, the best advancements were made by applying specific models to specific datasets, and, as our experience shows, the models malfunction when presented with music of less structure or different genres. The ideal model would encompass all possible differences, and it is hard to tell what we are lacking. On the model side, it would be perfect if we could utilize some type of a “music theory of everything”, although the point of applying neural networks to this task is to let the models figure that theory out. It seems GANs, LSTMs, and encoder-decoder systems perform well together, each one covering the disadvantages of the others. Therefore, the problem is on the data side, in the data itself and the way it is processed. The idea is human listeners rely on more than note information for music appreciation, for example we expect different instruments to play different parts, different genres to have different structures, and so on. On top of that, the idea of “enjoyment” is unquantifiable, so there seems to be no real measure of how well a model is doing without a human supervisor, and even then the opinion is subjective. Ideally, we would have compact data that would encompass a lot of information, including (but not limited to): note info (midi covers that pretty nicely), bar info, instrument info, genre info, and maybe even some type of sentiment info. The good news is all of these measurements are achievable to some capacity, and a GAN discriminator could assume the role of an objective human supervisor, so we believe that it would be possible to create a near-perfect dataset and train a near-perfect model that could create catchy human-like music for everyone to enjoy.
+  Advancements in the field of generative art have been quite spectacular. With music, the best advancements were made by applying specific models to specific datasets, and, as our experience shows, the models malfunction when presented with music of less structure or different genres. 
+  # TODO: Add section comparing how our models had worked, and why? 
+  The ideal model would encompass all possible differences, and it is hard to tell what we are lacking. On the model side, it would be perfect if we could utilize some type of a “music theory of everything”, although the point of applying neural networks to this task is to let the models figure that theory out. It seems GANs, LSTMs, and encoder-decoder systems perform well together, each one covering the disadvantages of the others. 
+  Therefore, the problem is on the data side, in the data itself and the way it is processed. The idea is human listeners rely on more than note information for music appreciation, for example we expect different instruments to play different parts, different genres to have different structures, and so on. On top of that, the idea of “enjoyment” is unquantifiable, so there seems to be no real measure of how well a model is doing without a human supervisor, and even then the opinion is subjective. Ideally, we would have compact data that would encompass a lot of information, including (but not limited to): note info (midi covers that pretty nicely), bar info, instrument info, genre info, and maybe even some type of sentiment info. The good news is all of these measurements are achievable to some capacity, and a GAN discriminator could assume the role of an objective human supervisor, so we believe that it would be possible to create a near-perfect dataset and train a near-perfect model that could create catchy human-like music for everyone to enjoy.
 
 ## Team Roles
 

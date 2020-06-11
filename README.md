@@ -89,9 +89,9 @@ Advancements in the field of generative art have been quite spectacular. With mu
 
 ## Team Roles
 
-Nikolas Racelis Russell: WaveNet model
-Iakov Vasilyev: Muse_GAN model
-Cameron Shaw: Magenta performance_RNN model
+- Nikolas Racelis Russell: WaveNet model
+- Iakov Vasilyev: Muse_GAN model
+- Cameron Shaw: Magenta performance_RNN model
 
 ## Technical Notes and Dependencies
 

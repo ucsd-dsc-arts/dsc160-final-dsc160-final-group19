@@ -68,8 +68,8 @@ This section should summarize your results and will embed links to documentation
 - written text as `.pdf`
 
 __WaveNet__:
-- [Version 1 (maestro) Sample](/results/WaveNet/test_1.mid)
-- Version 2 (video game) Sample:
+- [Version 1 (maestro) Sample](/results/WaveNet/test_1.mp3)
+- [Version 2 (video game) Sample](/results/WaveNet/videogame_1.mp3)
 
 ## Discussion
 

@@ -1,0 +1,55 @@
+linux commands to produce dataset, in environment setup as instructed by: https://github.com/magenta/magenta
+
+
+//create note sequences to be read by performance_rnn, from midi files-using one folder
+
+convert_dir_to_note_sequences \
+  --input_dir=/home/doksam/maestro-v2.0.0/2017\
+  --output_file=/home/doksam/results/notesequences.tfrecord \
+  --recursive
+
+//create a dataset from read note sequences for training
+
+performance_rnn_create_dataset \
+--config=performance_with_dynamics \
+--input=/home/doksam/results/notesequences.tfrecord \
+--output_dir=/home/doksam/results \
+--eval_ratio=0.10
+
+//train rnn on existing dataset
+
+performance_rnn_train \
+--config=performance_with_dynamics \
+--run_dir=/home/doksam/results/logdir/run1 \
+--sequence_example_file=/home/doksam/results/training_performances.tfrecord
+--num_training_steps=300
+
+//generate music from trained rnn-this setup created rnn_example1_worst
+
+performance_rnn_generate \
+--run_dir=/home/doksam/results/logdir/run1 \
+--output_dir=/home/doksam/generated \
+--config=performance_with_dynamics \
+--num_outputs=10 \
+--num_steps=300 \
+--primer_melody="[60,62,64,65,67,69,71,72]"
+
+//this one created rnn_example2_better
+
+performance_rnn_generate \
+--run_dir=/home/doksam/results/logdir/run1 \
+--output_dir=/home/doksam/generated \
+--config=performance_with_dynamics \
+--num_outputs=10 \
+--num_steps=3000 \
+--primer_melody="[60,62,64,65,67,69,71,72]"
+
+//to create rnn_example3_best, we used a pre-trained model from magenta
+
+performance_rnn_generate 
+--config=performance_with_dynamics 
+--bundle_file=/home/doksam/pre-trained/performance_with_dynamics.mag 
+--output_dir=/home/doksam/results 
+--num_outputs=10 
+--num_steps = 3000 
+--primer_melody="[60,62,64,64,67,69,71,72]"

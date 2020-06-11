@@ -68,8 +68,9 @@ This section should summarize your results and will embed links to documentation
 - written text as `.pdf`
 
 __WaveNet__:
-- [Version 1 (maestro) Sample](/results/WaveNet/test_1.mp3)
-- [Version 2 (video game) Sample](/results/WaveNet/videogame_1.mp3)
+- [Version 1 (maestro) Sample](/results/WaveNet/test_1.mp3). In this version we can melody forming, but at the time this was the first sample that wasn't just the same note over and over again. So to remedy this we wanted to try a new dataset and change the model from its baseline, which is where the next sample comes in.
+- [Version 1 (schubert failed sample](/results/WaveNet/schubert1.mp3). From trying out the model trained on a very small data set named schubert, but not much good came from this model, barely any nice melody from the samples.
+- [Version 2 (video game) Sample](/results/WaveNet/videogame_1.mp3). With this sample we can hear the heavy videogame music influence, as it sounds kind of similar to some Final Fantasy title screen music (about 20 out of 800ish data samples were from final fantasy). This was a definite improvement from the base model, possibly due to the generative process changes from tuning hyperparameters [linked from this code notebook](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb).
 
 ## Discussion
 

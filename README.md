@@ -35,7 +35,7 @@ __Models__:
   
 ![MuseGAN Structure](git_img/musegan.png)
 
-# TODO: performance_rnn
+- [Performance RNN](https://github.com/magenta/magenta/tree/master/magenta/models/performance_rnn). Magenta's performance RNN uses a LSTM, Long-Short Term Memory recurrent neural network. The point of which is to retain the memory from previous training steps of the neural network and to use those steps later on in the line, something that some other neural networks lack. The performance RNN models notes in a similar way as a midi file. It represents notes with a starting pitch and ending pitch event, a time shift event, and velocity. These events are used to represent a note and its particular dynamics for modeling.
 
 __Training Data__:
 - [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro). A dataset released by Magenta that has over 200 hours of piano music, and is in midi format.
@@ -67,10 +67,9 @@ __WaveNet__:
 __GANs__:
 - [Models](code/GANs.zip). The two GAN Models are in the GANs.zip folder. The Untitled notebook in the midi-lstm-gan subfolder can be run to train on the Maestro dataset.
 
-# TODO
 
-__Magenta's performance_rnn__:
-# TODO
+__Magenta's performance_rnn__: 
+- [PerformanceRNN](code/magenta_creation_code.txt). In order to properly set up the magenta environment, it was set up according to their qualifications [here](https://github.com/magenta/magenta). This code was then run once the environment was complete. 
 
 ## Results
 
@@ -84,7 +83,7 @@ This section should summarize your results and will embed links to documentation
 
 __WaveNet__:
 - [Version 1 (maestro) Sample](/results/WaveNet/test_1.mp3). In this version we can melody forming, but at the time this was the first sample that wasn't just the same note over and over again. So to remedy this we wanted to try a new dataset and change the model from its baseline, which is where the next sample comes in.
-- [Version 1 (schubert failed sample](/results/WaveNet/schubert1.mp3). From trying out the model trained on a very small data set named schubert, but not much good came from this model, barely any nice melody from the samples.
+-[Version 1 (schubert failed sample](/results/WaveNet/schubert1.mp3). From trying out the model trained on a very small data set named schubert, but not much good came from this model, barely any nice melody from the samples.
 - [Version 2 (video game) Sample](/results/WaveNet/videogame_1.mp3). With this sample we can hear the heavy videogame music influence, as it sounds kind of similar to some Final Fantasy title screen music (about 20 out of 800ish data samples were from final fantasy). This was a definite improvement from the base model, possibly due to the generative process changes from tuning hyperparameters [linked from this code notebook](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV2.ipynb).
 
 __Muse_GAN__:
@@ -92,7 +91,12 @@ __Muse_GAN__:
 - [midi-lstm-gan loss per epoch graph](results/GAN_Loss_per_Epoch_final.png). This graph shows the convergence of the discriminator and generator losses at a somewhat high number (x-axis is 100s of epochs), signifying, most likely, underfit data. 
 
 __Magenta's performance_rnn__:
-# TODO
+
+- [first run after 300 steps, on a fraction of the dataset](results/rnn_example1_worst). An incoherent stream of notes following the seed stream of notes. Not only was the model trained on only a fraction of the dataset, it was only trained for 300 steps. Like a monkey slamming it's hands on the keyboard.
+
+- [second run after 3000 steps, on the same dataset](results/rnn_example2_better). Still incoherent, but the timing and musicality is a little more recognizably musical. The monkey listened to 48 hours worth of Mozart, and now thinks itself an artist.
+
+- [third run using Magenta's pre-trained model](results/rnn_example3_best). Nothing close to being a real song, but the timing and musicality is close. The note progression needs work, but it is much better. Our monkey has been going to classes for the past 3 months, and this is its first recital.
 
 ## Discussion
 
@@ -133,6 +137,11 @@ __For WaveNet__:
 - scikit-learn
 - numpy
 
+__For Magenta__(requires many different packages but mainly):
+-tensorflow
+most dependencies are taken care of after running the environment set up. 
+
+
 ## Reference
 
 All references to papers, techniques, previous work, repositories you used should be collected at the bottom:
@@ -150,3 +159,9 @@ All references to papers, techniques, previous work, repositories you used shoul
 - __WaveNet Architecture Adaption__: https://www.analyticsvidhya.com/blog/2020/01/how-to-perform-automatic-music-generation/
 - __Videogame MIDIS__: https://www.vgmusic.com/
 - __Scraping code__: https://github.com/x4nth055/pythoncode-tutorials/tree/master/web-scraping/link-extractor
+- __Magenta repository__:
+https://github.com/magenta/magenta
+- __Magenta project homepage__:
+https://magenta.tensorflow.org/
+- __Maestro dataset__:
+https://magenta.tensorflow.org/datasets/maestro

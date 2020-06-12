@@ -17,12 +17,6 @@ Project Team Members:
 
 (10 points) 
 
-In the final submission, this section will describe both the data you use for this project and any pre-existing models/neural nets. For each you should provide the name, a textual description, and a link. If there is a paper (for neural net) link that as well.
-- Such and such Neural Net. The short description of this neural net. 
-  - [link to code]().
-  - [Title of Paper with Link](). 
-- Training data. Short description of training data including bibliographic info. [link to data]().
-
 __Models__:
 - [Our WaveNet Adaptation (There's 3 different versions we tested)](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/tree/master/code/WaveNet). We adapted the traditional WaveNet architecture, which uses raw waveform data, and changed it to accept string sequences of integers representing notes. The model uses 1D Dilated Causal Convolutional Layers. The most important aspect about this is the dilation, which covers for the low receptive field of the convolutions by exponentially increasing it inside the hidden layers.
   - [WaveNet Paper](https://arxiv.org/pdf/1609.03499.pdf?utm_source=Sailthru&utm_medium=email&utm_campaign=Uncubed%20Entry%20%2361%20-%20April%203%2C%202019&utm_term=entry)
@@ -49,15 +43,6 @@ __Training Data__:
 
 (20 points)
 
-This section will link to the various code for your project (stored within this repository). Your code should be executable on datahub, should we choose to replicate your result. This includes code for: 
-
-- code for data acquisition/scraping
-- code for preprocessing
-- training code (if appropriate)
-- generative methods
-
-Link each of these items to your .ipynb or .py files within this seection, and provide a brief explanation of what the code does. Reading this section we should have a sense of how to run your code.
-
 __WaveNet__: 
 - [Scraping video game music](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/Scraping%20Video%20Game%20Music.ipynb) Crawls a link for more download links found on page.
 - [Base Model](https://github.com/ucsd-dsc-arts/dsc160-final-dsc160-final-group19/blob/master/code/WaveNet/WaveNet_midiV1.ipynb). First iteration of the model, covers processing of midi files, and then runs baseline WaveNet Model originally ran on maestro dataset.
@@ -74,12 +59,6 @@ __Magenta's performance_rnn__:
 ## Results
 
 (30 points) 
-
-This section should summarize your results and will embed links to documentation to significant outputs. This should document both process and show artistic results. This can include figures, sound files, videos, bitmaps, as appropriate to your generative art idea. Each result should include a brief textual description, and all should be listed below: 
-
-- image files (`.jpg`, `.png` or whatever else is appropriate)
-- audio files (`.wav`, `.mp3`)
-- written text as `.pdf`
 
 __WaveNet__:
 - [Version 1 (maestro) Sample](/results/WaveNet/test_1.mp3). In this version we can melody forming, but at the time this was the first sample that wasn't just the same note over and over again. So to remedy this we wanted to try a new dataset and change the model from its baseline, which is where the next sample comes in.
@@ -100,17 +79,6 @@ __Magenta's performance_rnn__:
 
 ## Discussion
 
-(30 points, three to five paragraphs)
-
-The first paragraph should be a short summary describing your results.
-
-The subsequent paragraphs could address questions including:
-- Why is this culturally innovative?
-- How does your generative computational approach differ from traditional art/music/cultural production? 
-- How do your results relate to broader social, cultural, economic political, etc., issues? 
-- What are the ethical concerns for this form of generative art? 
-- In what future directions could you expand this work?
-
   Advancements in the field of generative art have been quite spectacular. With music, the best advancements were made by applying specific models to specific datasets, and, as our experience shows, the models malfunction when presented with music of less structure or different genres. The reason for that, we believe, is that our models ended up underfit. The algorithms tried to extract patterns from many (but not too many) very different samples, and, limited by the memory and power of our PCs, we were definitely not feeding them enough data for any clear patterns to solidify. Of course, one solution would be to give the models even less data, which would cause overfitting. Specifically for this task, overfitting would mean the algorithms would produce very similar music to the chosen set which would make it sound good, however, would it even be new music at that point? Immitating and following rules are tasks that computers excel at anyway, so there is no point in having nice sounding results if they come from overfitting. To avoid both underfitting and overfitting we would have had to feed way more data to the models than we possibly could.
   Trying different models shed some light on the performance issues and advantages of certain underlying neural nets. The three most popular algorithms in music generation turned out to be LSTMs, GANs, and Encoder-Decoder networks. LSTMs seem to be the most widely used networks as they capture both short and long term dependencies very well, which is important for music as there needs to be consistency not only withing each bar, but also between bars withing phrases, as well as between the phrases themselves. Furthermore, music often relies on set verse-chorus structures, and, hopefully, LSTMs can take care of that as well. GANs and Encoder-Decoders usually play secondary roles in music generation, but are also quite useful and important for more advanced models.
   
@@ -125,11 +93,6 @@ The subsequent paragraphs could address questions including:
 
 ## Technical Notes and Dependencies
 
-Any implementation details or notes we need to repeat your work. 
-- Additional libraries you are using for this project
-- Does this code require other pip packages, software, etc?
-- Does this code need to run on some other (non-datahub) platform? (CoLab, etc.)
-
 __For WaveNet__:
 - Tensorflow-gpu (latest version as of 6/11/20)
 - music_21
@@ -142,11 +105,6 @@ most dependencies are taken care of after running the environment set up.
 
 
 ## Reference
-
-All references to papers, techniques, previous work, repositories you used should be collected at the bottom:
-- Papers
-- Repositories
-- Blog posts
 
 - __MidiNET, CNN-GAN__: https://opus.lib.uts.edu.au/bitstream/10453/6862/1/2004001187.pdf
 - __Combining theory between RNN and LSTM__: http://cs229.stanford.edu/proj2016/report/Lou-MusicGenerationUsingNeuralNetworks-report.pdf

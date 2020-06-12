@@ -93,7 +93,7 @@ __Magenta's performance_rnn__:
 
 ## Technical Notes and Dependencies
 
-__For WaveNet__:
+__For WaveNet and GANs__:
 - Tensorflow-gpu (latest version as of 6/11/20)
 - music_21
 - scikit-learn
